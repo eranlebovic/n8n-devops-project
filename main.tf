@@ -4,6 +4,11 @@ terraform {
       source  = "hashicorp/google"
       version = "~> 5.0"
     }
+     # Add this block
+    random = {
+      source  = "hashicorp/random"
+      version = "~> 3.0"
+    }
   }
 }
 
