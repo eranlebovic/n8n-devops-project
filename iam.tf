@@ -1,8 +1,3 @@
-
-# This resource generates a random 4-character hex string
-resource "random_id" "pool_suffix" {
-  byte_length = 2
-}
 resource "google_service_account" "github_actions" {
   account_id   = "github-actions-runner"
   display_name = "GitHub Actions Runner"
@@ -15,8 +10,8 @@ resource "google_project_iam_member" "gke_developer" {
 }
 
 resource "google_iam_workload_identity_pool" "github_pool" {
-  # We append the random hex string to our pool ID
-  workload_identity_pool_id = "n8n-github-pool-${random_id.pool_suffix.hex}"
+  # We append the string to our pool ID
+  workload_identity_pool_id = "n8n-github-pool-v1"
   display_name              = "GitHub Actions Pool"
 }
 
