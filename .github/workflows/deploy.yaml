@@ -22,7 +22,10 @@ jobs:
       id: auth
       uses: google-github-actions/auth@v2
       with:
-        workload_identity_provider: 'projects/831227581465/locations/global/workloadIdentityPools/n8n-github-pool-v2/providers/github-provider'
+        # This is the new, correct value you just retrieved.
+        workload_identity_provider: 'projects/831227581465/locations/global/workloadIdentityPools/n8n-github-pool-dd61/providers/github-provider'
+        
+        # The service account email remains the same.
         service_account: 'github-actions-runner@celtic-facility-474000-j0.iam.gserviceaccount.com'
 
     - name: Get GKE credentials
